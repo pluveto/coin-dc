@@ -72,7 +72,12 @@ func main() {
 		}
 
 		instId := data.Data[0].InstId
-		idxPx := data.Data[0].IdxPx
+		idxPxStr := data.Data[0].IdxPx
+		idxPx, err := strconv.ParseFloat(idxPxStr, 64)
+		if err != nil {
+			log.Println("Failed to parse index price:", err)
+			continue
+		}
 
         point := influxdb2.NewPointWithMeasurement("coin_price").
             AddTag("instId", instId).
