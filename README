@@ -1,0 +1,24 @@
+# coin-dc
+
+A program to monitor and send cryptocurrency prices to InfluxDB.
+
+## Environment variables
+
+- `INFLUXDB_URL`: optional, default: "http://localhost:8086"
+- `INFLUXDB_TOKEN`: required
+- `INFLUXDB_ORG`: optional, default: "MyOrg"
+- `INFLUXDB_BUCKET`: optional, default: "MyBucket"
+- `INST_ID`: optional, default: "BTC-USDT"
+
+## Schema
+
+- Measurement: `coin_price`
+- Tags
+  - `instId` (representing the cryptocurrency pair, e.g. "BTC-USDT")
+- Fields
+  - `idxPx` (representing the index price, e.g. 39275.2)
+- Timestamp (set to current time)
+
+## Acknowledgements
+
+- API: <https://www.okx.com/api/v5/market/index-tickers>
