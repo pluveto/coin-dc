@@ -83,6 +83,10 @@ func main() {
 
 		log.Println("Wrote data to InfluxDB:", point)
 
+		if interval == 0 {
+			break
+		}
+
 		time.Sleep(time.Duration(interval) * time.Second)
 	}
 }

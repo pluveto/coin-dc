@@ -9,6 +9,7 @@ A program to monitor and send cryptocurrency prices to InfluxDB.
 - `INFLUXDB_ORG`: optional, default: "MyOrg"
 - `INFLUXDB_BUCKET`: optional, default: "MyBucket"
 - `INST_ID`: optional, default: "BTC-USDT"
+- `INTERVAL`: optional, default: 5 (seconds), 0 means run once and exit
 
 ## Schema
 
