@@ -51,6 +51,8 @@ func main() {
 		}
 	}
 
+	log.Println("Configured with INFLUXDB_URL:", url, "INST_ID:", instId, "INTERVAL:", interval, "INFLUXDB_ORG:", org, "INFLUXDB_BUCKET:", bucket)
+
 	writeAPI := client.WriteAPIBlocking(org, bucket)
 
 	for {
@@ -80,8 +82,6 @@ func main() {
 		if err := writeAPI.WritePoint(context.Background(), point); err != nil {
 			log.Fatal(err)
 		}
-
-		log.Println("Wrote data to InfluxDB:", point)
 
 		if interval == 0 {
 			break
